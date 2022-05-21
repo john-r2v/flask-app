@@ -17,10 +17,10 @@ docker pull lvthillo/python-flask-docker
 ### Run the container
 Create a container from the image.
 ```
-$ docker run --name my-container -d -p 5000:5000 lvthillo/python-flask-docker
+$ docker run --name my-container -d -p 8080:8080 lvthillo/python-flask-docker
 ```
 
-Now visit http://localhost:5000
+Now visit http://localhost:8080
 ```
  The hostname of the container is 6095273a4e9b and its IP is 172.17.0.2. 
 ```
@@ -32,4 +32,13 @@ $ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' m
 172.17.0.2
 $ docker inspect -f '{{ .Config.Hostname }}' my-container
 6095273a4e9b
+```
+
+
+### 로컬 실행
+```shell
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+$ python app/app.py
 ```
