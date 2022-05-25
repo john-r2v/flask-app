@@ -45,4 +45,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: luckypenny79/flask-app:$${ steps.setenv.outputs.COLOR_TAGS }}
+          tags: luckypenny79/flask-app:${TAGS}
+          env:
+            TAGS: $${ steps.setenv.outputs.COLOR_TAGS }}
