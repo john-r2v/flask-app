@@ -38,9 +38,11 @@ jobs:
           echo ::set-env name=COLOR_TAGS::$(echo ${GITHUB_REF##*/})
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        id: setenv
+
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: luckypenny79/flask-app:${COLOR_TAGS}
+          tags: luckypenny79/flask-app:$${ steps.setenv.outputs.COLOR_TAGS }}
