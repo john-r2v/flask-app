@@ -1,10 +1,10 @@
 name: GitHub Actions Demo
 on:
   push:
-      tags:
-        - orange-v*
-        - blue-v*
-        - green-V*
+#      tags:
+#        - orange-v*
+#        - blue-v*
+#        - green-V*
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -46,5 +46,5 @@ jobs:
         with:
           push: true
           tags: luckypenny79/flask-app:${TAGS}
-          env:
-            TAGS: $${ steps.setenv.outputs.COLOR_TAGS }}
+        env:
+          TAGS: $${ steps.setenv.outputs.COLOR_TAGS }}
