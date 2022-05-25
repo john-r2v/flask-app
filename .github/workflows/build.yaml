@@ -35,7 +35,7 @@ jobs:
       -
         name: Set env
         run: |
-          run: echo ::set-env name=COLOR_TAGS::$(echo ${GITHUB_REF##*/})
+          echo ::set-env name=COLOR_TAGS::$(echo ${GITHUB_REF##*/})
       -
         name: Build and push
         uses: docker/build-push-action@v3
