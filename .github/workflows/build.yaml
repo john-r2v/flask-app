@@ -36,6 +36,8 @@ jobs:
         name: Set env
         run: |
           echo ::set-env name=COLOR_TAGS::$(echo ${GITHUB_REF##*/})
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       -
         name: Build and push
         uses: docker/build-push-action@v3
